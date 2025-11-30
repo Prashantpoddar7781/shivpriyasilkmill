@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { AppView } from '../types';
-import { ScrollText, Menu, X } from 'lucide-react';
+import { ScrollText, Menu, X, Phone } from 'lucide-react';
 
 interface NavbarProps {
   currentView: AppView;
@@ -14,45 +15,48 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
     { label: 'Home', view: AppView.HOME },
     { label: 'Sarees', view: AppView.SAREES },
     { label: 'Suits', view: AppView.SUITS },
-    { label: 'Dress Materials', view: AppView.MATERIALS },
+    { label: 'Fabrics', view: AppView.MATERIALS },
   ];
 
   return (
-    <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav className="sticky top-0 z-50 glass border-b border-slate-200/60 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center cursor-pointer" onClick={() => onNavigate(AppView.HOME)}>
-            <div className="bg-primary p-1.5 rounded mr-2">
+        <div className="flex justify-between h-20 items-center">
+          {/* Logo */}
+          <div className="flex items-center cursor-pointer group" onClick={() => onNavigate(AppView.HOME)}>
+            <div className="bg-primary group-hover:bg-secondary transition-colors duration-300 p-2 rounded-lg mr-3 shadow-md">
               <ScrollText className="h-6 w-6 text-white" />
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-primary font-serif tracking-tight">Shivpriya Silk Mills</h1>
-              <p className="text-[10px] text-slate-500 uppercase tracking-widest">Agent Services</p>
+            <div className="flex flex-col">
+              <h1 className="text-2xl font-bold text-primary tracking-tight leading-none group-hover:text-secondary transition-colors">Shivpriya</h1>
+              <span className="text-[10px] text-slate-500 font-medium tracking-[0.2em] uppercase mt-1">Silk Mills</span>
             </div>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => onNavigate(item.view)}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   currentView === item.view
-                    ? 'text-secondary bg-yellow-50'
-                    : 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                    ? 'text-white bg-primary shadow-lg shadow-primary/20'
+                    : 'text-slate-600 hover:text-primary hover:bg-slate-100'
                 }`}
               >
                 {item.label}
               </button>
             ))}
             
-            <div className="h-6 w-px bg-slate-200 mx-2"></div>
+            <div className="h-8 w-px bg-slate-200 mx-4"></div>
+            
             <button
               onClick={() => onNavigate(AppView.CONTACT)}
-              className="ml-4 bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-700 transition-colors shadow-md"
+              className="flex items-center gap-2 bg-secondary text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-amber-700 transition-all shadow-lg shadow-amber-900/20 active:scale-95"
             >
-              Contact Shivpriya Silk Mills
+              <Phone className="w-4 h-4" />
+              <span>Contact Aadhat</span>
             </button>
           </div>
 
@@ -60,9 +64,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-600 hover:text-primary p-2"
+              className="text-slate-600 hover:text-primary p-2 transition-transform active:scale-90"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
           </div>
         </div>
@@ -70,8 +74,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden bg-white border-b border-slate-200 absolute w-full shadow-xl animate-fade-in-down">
+          <div className="px-4 pt-4 pb-6 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -79,10 +83,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                   onNavigate(item.view);
                   setIsMenuOpen(false);
                 }}
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
+                className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-colors ${
                   currentView === item.view
-                    ? 'text-secondary bg-yellow-50'
-                    : 'text-slate-600 hover:text-primary hover:bg-slate-50'
+                    ? 'text-primary bg-slate-50 border border-slate-100'
+                    : 'text-slate-600 hover:bg-slate-50'
                 }`}
               >
                 {item.label}
@@ -93,9 +97,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 onNavigate(AppView.CONTACT);
                 setIsMenuOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-primary mt-4"
+              className="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-white bg-primary mt-4 shadow-lg active:bg-slate-800"
             >
-              Contact Shivpriya Silk Mills
+              Contact Aadhat
             </button>
           </div>
         </div>

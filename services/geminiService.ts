@@ -26,7 +26,7 @@ export const sendMessageToGemini = async (message: string, history: { role: 'use
       2. Be polite, professional, and concise.
       3. If a user asks about a fabric we don't have a specific supplier for, suggest the closest match or ask them to contact the agent directly.
       4. Emphasize "Top Suppliers" when appropriate.
-      5. The agent's name is Vijay Sharma.
+      5. The agent's name is Sajjan Poddar.
     `;
 
     // Convert history to the format expected by Google Generative AI
