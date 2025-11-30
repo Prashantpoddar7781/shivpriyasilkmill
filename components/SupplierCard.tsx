@@ -1,5 +1,5 @@
 import React from 'react';
-import { Supplier, CategoryType } from '../types';
+import { Supplier, CategoryType, PriceCategory } from '../types';
 import { Star, MapPin, Award, Tag, IndianRupee, Store } from 'lucide-react';
 
 interface SupplierCardProps {
@@ -53,7 +53,7 @@ const SupplierCard: React.FC<SupplierCardProps> = ({ supplier }) => {
         {/* Price Badges - Hidden for Dress Materials */}
         {supplier.category !== CategoryType.DRESS_MATERIAL && (
           <div className="flex flex-wrap gap-1 mb-3">
-            {supplier.priceCategories.map((cat) => (
+            {supplier.priceCategories.map((cat: PriceCategory) => (
               <span 
                 key={cat}
                 className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${getPriceCategoryColor(cat)}`}
