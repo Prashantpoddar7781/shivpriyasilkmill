@@ -33,7 +33,7 @@ A modern portfolio website for textile agent services, showcasing suppliers and 
 
 ## Deploy to Vercel
 
-1. **Push your code to GitHub** (if not already done):
+1. **Push your code to GitHub** (already done):
    ```bash
    git add .
    git commit -m "Fix deployment issues"
