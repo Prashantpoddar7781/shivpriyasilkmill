@@ -236,7 +236,7 @@ function App() {
               <h2 className="text-3xl font-bold text-primary font-serif mb-10 text-center">Curated Collections</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  { title: 'Sarees', view: AppView.SAREES, img: 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&q=80', desc: 'Banarasi, Silk, & Dyed' },
+                  { title: 'Sarees', view: AppView.SAREES, img: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&q=80&w=800', desc: 'Banarasi, Silk, & Dyed' },
                   { title: 'Designer Suits', view: AppView.SUITS, img: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&q=80', desc: 'Embroidered & Printed' },
                   { title: 'Dress Materials', view: AppView.MATERIALS, img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80', desc: 'Lehenga, Raw Silk & More' }
                 ].map((cat) => (
