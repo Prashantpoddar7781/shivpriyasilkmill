@@ -236,7 +236,7 @@ function App() {
               <h2 className="text-3xl font-bold text-primary font-serif mb-10 text-center">Curated Collections</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  { title: 'Sarees', view: AppView.SAREES, img: 'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&q=80', desc: 'Banarasi, Silk, & Dyed' },
+                  { title: 'Sarees', view: AppView.SAREES, img: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80', desc: 'Banarasi, Silk, & Dyed' },
                   { title: 'Designer Suits', view: AppView.SUITS, img: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?auto=format&fit=crop&q=80', desc: 'Embroidered & Printed' },
                   { title: 'Dress Materials', view: AppView.MATERIALS, img: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80', desc: 'Lehenga, Raw Silk & More' }
                 ].map((cat) => (
@@ -430,6 +430,8 @@ function App() {
               <p className="font-semibold text-white">{AGENT_NAME}</p>
               <a href={`tel:+91${AGENT_CONTACT}`} className="hover:text-white transition-colors cursor-pointer block">{AGENT_CONTACT}</a>
               <a href={`mailto:${AGENT_EMAIL}`} className="hover:text-white transition-colors cursor-pointer break-all block">{AGENT_EMAIL}</a>
+              <p className="font-semibold text-white mt-4">Yogesh Poddar</p>
+              <a href={`tel:+919375713415`} className="hover:text-white transition-colors cursor-pointer block">9375713415</a>
               <p className="mt-4 text-xs bg-white/10 inline-block px-2 py-1 rounded">Surat, India</p>
             </div>
           </div>
